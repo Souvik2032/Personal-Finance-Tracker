@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Personal Finance Tracker - Introduction</title>
+  <style>
+    /* Background image for the page */
+    body.intro-body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: url('/static/Adpic/innovative personal finance tracker app.png') no-repeat center center fixed;
+      background-size: cover;
+      color: #333;
+      text-align: center;
+      padding: 20px;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 30px;
+      border-radius: 10px;
+    }
+    h1.intro-title {
+      font-size: 42px;
+      color: #222;
+      margin-bottom: 1rem;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    }
+    /* Intro image (directly below the title) */
+    .intro-image {
+      width: 250px;
+      height: auto;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    .intro-text {
+      text-align: left;
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: #444;
+      margin-bottom: 30px;
+    }
+    .topic-title {
+      font-size: 24px;
+      margin-bottom: 10px;
+      color: #2c3e50;
+    }
+    .topic-desc {
+      font-size: 1.15rem;
+      color: #555;
+      margin-bottom: 15px;
+      text-align: left;
+    }
+    .feature {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      margin-bottom: 30px;
+      text-align: left;
+    }
+    .feature img {
+      width: 200px;
+      height: auto;
+      margin-right: 20px;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+    }
+    hr.section-divider {
+      margin-top: 50px;
+      margin-bottom: 20px;
+      border: none;
+      border-top: 2px solid #ccc;
+    }
+    .developer-section h2 {
+      font-size: 28px;
+      color: #2c3e50;
+      margin-bottom: 10px;
+    }
+    .developer-section p {
+      font-size: 1.2rem;
+      color: #444;
+      line-height: 1.6;
+      white-space: pre-line;
+    }
+    .next-page-link {
+      display: block;
+      text-align: center;
+      margin-top: 30px;
+      font-size: 1.2rem;
+      color: #2c3e50;
+      text-decoration: none;
+      border: 2px solid #2c3e50;
+      border-radius: 8px;
+      width: 250px;
+      margin: 30px auto 0;
+      padding: 10px;
+      transition: all 0.3s ease;
+    }
+    .next-page-link:hover {
+      background: #2c3e50;
+      color: #fff;
+    }
+  </style>
+</head>
+<body class="intro-body">
+  <div class="container">
+    <!-- Title -->
+    <h1 class="intro-title">Personal Finance Tracker</h1>
+
+    <!-- Intro Image (just below the title) -->
+    <img class="intro-image" src="{{ url_for('static', filename='Adpic/personal finance tracker app.png') }}" 
+         alt="Personal Finance Tracker App">
+
+    <!-- Intro Text -->
+    <div class="intro-text">
+      <p>
+        Welcome to the <strong>Personal Finance Tracker</strong>. This innovative app is designed 
+        to help you understand where your money goes and how you can better manage it. 
+        In a busy world, keeping track of daily expenses can be challenging.
+      </p>
+      <p>
+        Our solution simplifies budgeting by providing clear visual insights, easy tracking, 
+        and smart suggestions. It acts like a friendly financial guide that supports you every day.
+      </p>
+      <p>
+        For example, you can easily record each expense, be it a cup of coffee or a grocery run, 
+        and see your spending habits laid out in an understandable way.
+      </p>
+      <p>
+        This helps you make informed decisions—whether to cut back on small luxuries 
+        or allocate funds towards saving for a dream vacation.
+      </p>
+      <p>
+        Our app is built for everyone who wants a simple, practical way to stay on top 
+        of their finances.
+      </p>
+    </div>
+
+    <!-- Features Section -->
+    <div class="feature">
+      <img src="{{ url_for('static', filename='Adpic/tracking expenses.png') }}" alt="Tracking Expenses">
+      <div>
+        <h2 class="topic-title">1. Track Your Expenses</h2>
+        <p class="topic-desc">
+          Tracking your expenses is the foundation of sound budgeting. 
+          When you record every transaction, you see exactly how much you spend daily. 
+          If you buy a coffee for $5 each day, that’s $150 per month—money that could be saved or spent more wisely elsewhere.
+        </p>
+      </div>
+    </div>
+
+    <div class="feature">
+      <img src="{{ url_for('static', filename='Adpic/A boy tracking his expenses using a Personal Finance Tracker.png') }}" alt="Manage Your Expenses">
+      <div>
+        <h2 class="topic-title">2. Manage Your Expenses</h2>
+        <p class="topic-desc">
+          By categorizing expenses (like groceries, entertainment, and bills), you can plan your monthly budget effectively. 
+          This helps you decide where to cut costs and where you can afford to spend a little more. 
+          It’s all about finding the perfect balance to enjoy life while saving for what truly matters.
+        </p>
+      </div>
+    </div>
+
+    <div class="feature">
+      <img src="{{ url_for('static', filename='Adpic/Set goal using Personal Financial Tracker image.png') }}" alt="Set Goals">
+      <div>
+        <h2 class="topic-title">3. Set Goals</h2>
+        <p class="topic-desc">
+          Goal setting helps turn dreams into actionable plans. Whether you’re saving for a $1,000 gadget, 
+          a family vacation, or an emergency fund, breaking it down into monthly targets makes it achievable. 
+          Our tracker shows your progress, keeping you motivated every step of the way.
+        </p>
+      </div>
+    </div>
+
+    <div class="feature">
+      <img src="{{ url_for('static', filename='Adpic/save for future Personal Financial Tracker image.png') }}" alt="Save for Future">
+      <div>
+        <h2 class="topic-title">4. Save for the Future</h2>
+        <p class="topic-desc">
+          Building a secure future starts with consistent saving. By automatically setting aside a portion 
+          of your income, you’ll accumulate a financial cushion over time. 
+          Whether it’s for retirement, your child’s education, or just peace of mind, 
+          saving regularly ensures you’re prepared for whatever life throws your way.
+        </p>
+      </div>
+    </div>
+
+    <!-- Divider above developers -->
+    <hr class="section-divider">
+
+    <!-- Developer Section -->
+    <div class="developer-section">
+      <h2>Developers</h2>
+      <p>Shree Itee Agarwal<br>Anisha Panja<br>Swayamshree Purohit<br>Souvik Layek</p>
+    </div>
+
+    <!-- Navigation Link to Next Page (Streamlit page) -->
+    <a class="next-page-link" href="/streamlit-page">WANT TO EXPLORE IT? CLICK HERE!</a>
+  </div>
+</body>
+</html>

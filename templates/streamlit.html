@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Personal Finance Tracker - Streamlit</title>
+  <style>
+    /* Background image referencing your static file with url_for */
+    body {
+      font-family: Arial, sans-serif;
+      background: url('{{ url_for("static", filename="Adpic/personal finance tracker app (1).png") }}') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    }
+
+    h1 {
+      font-size: 48px;
+      font-weight: bold;
+      color: #ffcc00;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+      margin-bottom: 30px;
+    }
+
+    form {
+      margin-bottom: 40px;
+    }
+
+    input[type="file"],
+    input[type="number"] {
+      width: 80%;
+      padding: 10px;
+      font-size: 18px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: none;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      font-size: 20px;
+      background: #ffcc00;
+      color: #222;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 10px;
+    }
+    .btn:hover {
+      background: #ff8800;
+      color: #fff;
+      transform: scale(1.05);
+    }
+
+    /* Feature container for images and text */
+    .feature {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      transition: transform 0.3s ease-in-out;
+    }
+    .feature:hover {
+      transform: scale(1.05);
+    }
+    .feature img {
+      width: 250px;
+      height: auto;
+      border-radius: 10px;
+      border: 3px solid #fff;
+    }
+    .feature-text {
+      width: 60%;
+      text-align: left;
+      font-size: 20px;
+      color: #eee;
+    }
+    .feature-title {
+      font-size: 30px;
+      font-weight: bold;
+      color: #ffcc00;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+      margin-bottom: 10px;
+    }
+
+    /* The 'Go to Prediction' button */
+    .prediction-btn {
+      display: block;
+      text-align: center;
+      background: linear-gradient(45deg, #ffcc00, #ff8800);
+      color: #222;
+      font-size: 22px;
+      font-weight: bold;
+      padding: 15px 30px;
+      border-radius: 10px;
+      text-decoration: none;
+      width: 300px;
+      margin: 40px auto 0;
+      transition: all 0.3s ease;
+    }
+    .prediction-btn:hover {
+      background: linear-gradient(45deg, #ff8800, #ffcc00);
+      color: #fff;
+      transform: scale(1.1);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    /* Table/Pie chart placeholder styling */
+    #analysisOutput {
+      margin-top: 30px;
+      text-align: center;
+    }
+    #analysisOutput img {
+      width: 300px;
+      margin-top: 15px;
+      border: 3px solid #fff;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Explore Your Financial Journey</h1>
+
+    <!-- Upload Files Form -->    
+    <form action="/streamlit-page" method="POST" enctype="multipart/form-data" id="uploadForm" onsubmit="handleUpload(event)">
+      <h2 class="feature-title">Upload Your Financial Data</h2>
+      <p style="font-size:20px;">Please select both your current month and previous month CSV files below.</p>
+      <input type="file" name="current_file" accept=".csv" required>
+      <br>
+      <input type="file" name="previous_file" accept=".csv" required>
+      <br>
+      <input type="number" name="savings_percentage" placeholder="Savings Percentage (%)" min="5" max="15" value="10" required>
+      <br>
+      <input type="number" name="income" placeholder="Monthly Income ($)" min="0" step="100" value="5000" required>
+      <br>
+      <button type="submit" class="btn">Upload & Analyze Data</button>
+    </form>
+
+    <!-- Feature: Upload illustration image -->
+    <div class="feature">
+      <img src="{{ url_for('static', filename='Adpic/an image of a file being uploaded.png') }}" alt="Upload Data">
+      <div class="feature-text">
+        <h2 class="feature-title">File Upload Feature</h2>
+        <p>Quickly add your financial data for both current and previous months. Our system then analyzes and provides insights into your spending patterns.</p>
+      </div>
+    </div>
+
+    <!-- Feature: Spending Analysis -->
+    <div class="feature">
+      <img src="{{ url_for('static', filename='Adpic/Spending analysis image generation.png') }}" alt="Spending Analysis">
+      <div class="feature-text">
+        <h2 class="feature-title">Spending Analysis</h2>
+        <p>Discover detailed insights into your spending habits. See how daily expenses accumulate over time, and learn which areas you can optimize for better savings.</p>
+      </div>
+    </div>
+
+    <!-- Feature: Budget Management -->
+    <div class="feature">
+      <img src="{{ url_for('static', filename='Adpic/AI helping in financial advice.png') }}" alt="Budget Management Tips">
+      <div class="feature-text">
+        <h2 class="feature-title">Budget Management Tip</h2>
+        <p>Receive smart, AI-powered budgeting advice tailored to your spending. Understand which expenses can be reduced and how to allocate your funds for maximum savings.</p>
+      </div>
+    </div>
+
+    <!-- Analysis Output Section (Simulated Table + Pie Chart) -->
+    <div id="analysisOutput"></div>
+
+    <!-- Download PDF Report Button (simulated) -->
+    <div id="downloadSection"></div>
+
+    <!-- Navigation Button to Prediction Page -->
+    <a class="prediction-btn" href="/predict-page">Go to Prediction</a>
+  </div>
+
+  <script>
+    function handleUpload(event) {
+      event.preventDefault();
+      // Simulated analysis: In a real scenario, you'd send data to the backend for CSV parsing & analysis.
+      const analysisDiv = document.getElementById('analysisOutput');
+      let outputHTML = `
+        <h2 class="feature-title">Spending Analysis Results</h2>
+        <p style="font-size:20px;">[Simulated Table of Spending Analysis after processing your CSVs]</p>
+        <img src="{{ url_for('static', filename='Adpic/pie_chart.png') }}" alt="Spending Pie Chart">
+      `;
+      analysisDiv.innerHTML = outputHTML;
+
+      // Simulated PDF download button
+      document.getElementById('downloadSection').innerHTML = `
+        <button class="btn" onclick="downloadPDF()">Download PDF Report</button>
+      `;
+    }
+
+    function downloadPDF() {
+      alert('Downloading PDF Report... (This is a simulated action.)');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,182 @@
+/* Global body resets and fonts */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #fff;
+}
+
+/* Intro page styling */
+.intro-body {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.intro-container {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 3rem;
+  max-width: 800px;
+  width: 90%;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.intro-container h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+}
+
+.intro-text {
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.explore-button-container {
+  margin-top: 2rem;
+}
+
+/* Streamlit-like page styling */
+.streamlit-body {
+  background: linear-gradient(135deg, #3f4c6b, #606c88);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.streamlit-container {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 3rem;
+  max-width: 800px;
+  width: 90%;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.streamlit-container h1 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.3);
+}
+
+/* Predict page styling */
+.predict-body {
+  background: linear-gradient(135deg, #16222a, #3a6073);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.predict-container {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 3rem;
+  max-width: 600px;
+  width: 90%;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.predict-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+}
+
+.predict-container p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+/* Common input and button styles */
+input[type='text'] {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  outline: none;
+  transition: all 0.3s;
+}
+
+input[type='text']::placeholder {
+  color: #ddd;
+}
+
+input[type='text']:focus {
+  background: rgba(255,255,255,0.3);
+}
+
+button {
+  background: linear-gradient(45deg, #ff7e5f, #feb47b);
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+  box-shadow: 0px 4px 15px rgba(255,121,97,0.3);
+}
+
+button:hover {
+  background: linear-gradient(45deg, #feb47b, #ff7e5f);
+  transform: scale(1.05);
+}
+
+/* Explore button style */
+.explore-btn {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+  background: linear-gradient(45deg, #6a11cb, #2575fc);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.explore-btn:hover {
+  transform: scale(1.05);
+  background: linear-gradient(45deg, #2575fc, #6a11cb);
+}
+
+/* Prediction result text */
+.result {
+  margin-top: 2rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Simple fadeIn animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
